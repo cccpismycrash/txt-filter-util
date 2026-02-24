@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
  * Класс для обработки и контроля правильности передаваемых входных аргументов.
  *
  * <p> Обработка аргументов производится при помощи цикла for-each и оператора switch.
- * <p> Класс состоит из статических полей и одного метода.
+ * <p> Класс состоит из статических полей и статического одного метода.
+ * <p> Необходимые поля для работы утилиты доступны через геттеры.
  * <p> В статических полях содержатся:
  * <ul>
  *      <li>Массив с путями файлов входных данных.</li>
@@ -16,8 +17,7 @@ import java.util.regex.Pattern;
  *      <li>Рабочая директория, откуда была запущена утилита.</li>
  *      <li>Путь для выходных данных.</li>
  * </ul>
- * <p>
- * Обработка правильности входных аргументов опций производится при помощи регулярных выражений.
+ * <p> Обработка правильности входных аргументов опций производится при помощи регулярных выражений.
  *
  * <p> Выходные пути при указании соответствующей опции проверяются на возможность создания директорий и файлов
  * в случае их отсутствия. Если произошла ошибка при обработке входных параметров, пустые директории и файлы
@@ -89,14 +89,14 @@ public class ArgumentsHandler {
                 case "--help":
                     String helpStr = """                          
                             Usage:
-                                app.jar [-o <path>] [-p <prefix>] [-a] [-s | -f] data1.txt [data2.txt ...]
+                                app.jar [-o <path>] [-p <prefix>] [-a] [-s | -f] [relative_path]data1.txt [[relative_path]data2.txt ...]
                             
                             Description:
                                 Filters input files based on data type into integer, real, and string types.
                                 The filtering results are saved as integers.txt, floats.txt, and strings.txt, respectively.
                             
                             Options:
-                                --help
+                                --help                         Output help on using the utility.
                                 -o, --output <path>            Specifies the output path for the utility's result. The passed path can be absolute or relative.
                                 -p, --prefix <prefix>          Specifies a prefix for the name of the output files.
                                 -a, --append                   Sets the mode for adding to existing files. If the mode is not specified, existing files will be overwritten.

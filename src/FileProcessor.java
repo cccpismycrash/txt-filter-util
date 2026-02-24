@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  *<p> Для целочисленных типов предполагается, что они могут быть как положительными, так и отрицательными и помещаются
  * в тип {@code long}.
  *
- *<p> Для строковых типов предполагается, что они могут быть отрицательными и положительными, разделителем может быть
+ *<p> Для вещественных типов предполагается, что они могут быть отрицательными и положительными, разделителем может быть
  * как точка, так и запятая, могут быть записаны в обычном и экспоненциальном виде и помещаются в тип {@code double}.
  *
  *<p> Для строковых типов предполагается, что они могут состоять как из букв, так из знаков препинания и
@@ -126,7 +126,7 @@ public class FileProcessor {
                 try {
                     FileSystemManager.createFileAndDirs(outputPath);
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    throw new RuntimeException("Unable to create a file at the specified path. Please try again.", e);
                 }
             }
 
@@ -137,7 +137,8 @@ public class FileProcessor {
                 }
                 return true;
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(
+                        "Error during file recording. Please try again.", e);
             }
         }
     }
