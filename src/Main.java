@@ -32,7 +32,8 @@ public class Main {
         try {
             ArgumentsHandler.parseArgs(args);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
+            System.exit(1);
         }
 
 //  -- Загрузка входных данных и их фильтрация в цикле --

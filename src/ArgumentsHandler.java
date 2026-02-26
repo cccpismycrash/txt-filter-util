@@ -203,12 +203,10 @@ public class ArgumentsHandler {
                         if (Files.exists(filePath)) {
                             dataPaths.add(filePath.toString());
                         } else {
-                            System.err.printf("The passed input file %s does not exist. " +
-                                    "Use --help for usage information.", args[i]);
+                            System.err.printf("The passed input file \"%s\" does not exist.\n", args[i]);
                         }
                     } else {
-                        System.err.printf("Invalid operand passed %s. " +
-                                "Use --help for usage information.", args[i]);
+                        System.err.printf("Invalid operand passed \"%s\".\n", args[i]);
                     }
             }
         }
